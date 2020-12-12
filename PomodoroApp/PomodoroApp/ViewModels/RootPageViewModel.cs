@@ -51,6 +51,11 @@ namespace PomodoroApp.ViewModels
                 {
                     MessagingCenter.Send(this, "GoToConfiguration");
                 }
+
+                if (SelectedMenuItem == "Pomodoro")
+                {
+                    MessagingCenter.Send(this, "GoToPomodoro");
+                }
             }
         }
     }

@@ -22,6 +22,12 @@ namespace PomodoroApp
                   Detail = new NavigationPage(new ConfigurationPage());
                   IsPresented = false;
               });
+
+            MessagingCenter.Subscribe<RootPageViewModel>(this, "GoToPomodoro", (a) =>
+            {
+                Detail = new NavigationPage(new PomodoroPage());
+                IsPresented = false;
+            });
         }
 
         //private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)

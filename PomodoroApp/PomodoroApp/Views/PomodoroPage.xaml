@@ -1,12 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewModels="clr-namespace:PomodoroApp.ViewModels"
              x:Class="PomodoroApp.Views.PomodoroPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
-    </ContentPage.Content>
+    <ContentPage.BindingContext>
+        <viewModels:PomodoroPageViewModel/>
+    </ContentPage.BindingContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Text="{Binding Ellapsed, StringFormat='{}{0:t}'}"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"
+               FontSize="80"/>
+        <Button Grid.Row="1"
+                Text="Iniciar/Pausar"
+                Command="{Binding StartOrPauseCommand}"/> 
+    </Grid>
 </ContentPage>
